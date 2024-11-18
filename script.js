@@ -40,6 +40,7 @@ function updateStats(data) {
   document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + "°C";
   document.querySelector('.humidity').innerHTML = data.main.humidity + "%";
   document.querySelector('.wind').innerHTML = data.wind.speed.toFixed(2) + " km/h";
+  
   document.querySelector('.weather-icon').src = `images/${data.weather[0].icon}@2x.png`;
   weatherDiv.classList.add('is-loaded');
 }
