@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+  <link rel='stylesheet' href='bulma.css'>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-narrow">
+          <div class="card weather-card">
+            <div class="search-wrapper">
+              <input class="input" type="text" placeholder="Enter city name" spellcheck="false">
+              <button class="button search-button">
+                <img src="images/search.png" alt="search">
+              </button>
+            </div>
+            
+            <div class="weather has-text-centered">
+              <figure class="image is-inline-block">
+                <img src="images/weatherCloud.png" class="weather-icon">
+              </figure>
+              
+              <h1 class="title temp">26°C</h1>
+              <h2 class="subtitle city">Tiruvanmiyur</h2>
+              
+              <div class="columns is-mobile is-gapless">
+                <div class="column details-column">
+                  <div class="is-flex is-align-items-center is-justify-content-center">
+                    <img src="images/humidity.png" alt="humidity" class="detail-icon">
+                    <div>
+                      <p class="humidity details-value">86%</p>
+                      <p class="details-label">Humidity</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="column details-column">
+                  <div class="is-flex is-align-items-center is-justify-content-center">
+                    <img src="images/wind.png" alt="wind" class="detail-icon">
+                    <div>
+                      <p class="wind details-value">2.24 km/h</p>
+                      <p class="details-label">Wind Speed</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+:root {
+  --card-width: 360px;
+  --card-padding: 1.75rem;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --card-width: 320px;
+    --card-padding: 1.5rem;
+  }
+}
+
+body {
+  background: linear-gradient(135deg, #1e4d92 0%, #1a4c3d 100%);
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.section {
+  width: 100%;
+}
+
+.weather-card {
+  width: var(--card-width);
+  padding: var(--card-padding);
+  background: linear-gradient(180deg, #2c2c2c 0%, #1a1a1a 100%);
+  border-radius: clamp(20px, 4vw, 28px);
+  box-shadow: 
+    0 12px 40px rgba(0,0,0,0.4),
+    0 1px 1px rgba(255,255,255,0.05) inset,
+    0 -1px 1px rgba(0,0,0,0.1) inset;
+  border: 1px solid rgba(255,255,255,0.1);
+  margin: 0 auto;
+}
+
+.search-wrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.input {
+  background-color: rgba(20, 20, 20, 0.8) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+  padding: 1.25rem !important;
+  border-radius: 15px !important;
+  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+  height: 2.8rem !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2) inset;
+}
+
+.search-button {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #5cc3f1 0%, #4ab0e0 100%) !important;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1);
+}
+
+.weather-icon {
+  width: clamp(80px, 20vw, 90px);
+  height: clamp(80px, 20vw, 90px);
+  margin: 0.5rem auto;
+  filter: brightness(0.9) contrast(1.1);
+  background: linear-gradient(145deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3) 100%);
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.detail-icon {
+  width: clamp(24px, 5vw, 26px);
+  height: clamp(24px, 5vw, 26px);
+  margin-right: 0.75rem;
+  opacity: 0.8;
+}
+
+.temp {
+  color: white !important;
+  font-size: clamp(3.5rem, 8vw, 4rem) !important;
+  font-weight: 700 !important;
+  margin: 0.8rem 0 0.3rem !important;
+  letter-spacing: -2px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.city {
+  color: #5cc3f1 !important;
+  font-size: clamp(1.8rem, 4vw, 2rem) !important;
+  font-weight: 400 !important;
+  margin-bottom: 2rem !important;
+  text-shadow: 0 2px 8px rgba(92, 195, 241, 0.3);
+}
+
+.details-label {
+  color: #888 !important;
+  font-size: clamp(0.8rem, 1.8vw, 0.85rem) !important;
+  font-weight: 300;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.details-value {
+  color: white !important;
+  font-size: clamp(1.1rem, 2.2vw, 1.2rem) !important;
+  font-weight: 500;
+}
+
+.weather {
+  display: none;
+}
+
+.weather.is-loaded {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.details-column {
+  padding: 0.5rem;
+  position: relative;
+}
+
+.details-column:first-child::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Additional responsive adjustments */
+@media screen and (max-width: 480px) {
+  .section {
+    padding: 1rem;
+  }
+  .details-column {
+    padding: 0.25rem;
+  }
+  .weather-card {
+    border-radius: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .weather-card {
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+  }
+  .weather-card:hover {
+    transform: scale(1);
+  }
+}
+
+/* For smaller height screens */
+@media screen and (max-height: 700px) {
+  .weather-card {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .temp {
+    margin: 0.5rem 0 0.2rem !important;
+  }
+  .city {
+    margin-bottom: 1.5rem !important;
+  }
+}
